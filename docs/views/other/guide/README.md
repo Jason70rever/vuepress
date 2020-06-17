@@ -47,7 +47,7 @@ yarn install
 
 <img src="asset\image03.png" alt="image03" style="zoom:80%;" />
 
-这将生成一个博客网站模板“my-blog”，其中“docs”文件夹里面是主要的源文件，包括配置和博客文章的 Markdown 文件。
+这将生成一个博客网站模板“Jason_blog”，其中“docs”文件夹里面是主要的源文件，包括配置和博客文章的 Markdown 文件。
 
 
 
@@ -70,11 +70,11 @@ yarn build
 
 <img src="asset\image05.png" alt="image05" style="zoom:80%;" />
 
-编译生成的静态网页将位于“public”文件夹中。在生成的模板上，随即更新 `package.json` 中的依赖，使用最新的版本
+编译生成的静态网页将位于“public”文件夹中。在生成的模板上，随即更新 `package.json` 中的依赖，可以使用最新的版本
 
 ````shell
 "devDependencies": {
-    "vuepress": "1.5.0",
+    "vuepress": "1.4.1",
     "vuepress-theme-reco": "1.2.2"
   }
 ````
@@ -168,7 +168,7 @@ yarn dev
 
 3. 构建成功后，设置定制的域名。
    例如这里，我设置了定制的域名“jason70rever”，于是可以这样访问此博客网站：
-   https://jason70rever.netlify.app/
+   [Jason_blog](https://jason70rever.netlify.app/)
 
    
 
