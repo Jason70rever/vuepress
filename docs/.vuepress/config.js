@@ -37,7 +37,7 @@ module.exports = {
         "items": [
           {
             "text": "GitLab",
-            "link": "https://gitlab.com/bobyuan/",
+            "link": "https://github.com/Jason70rever",
             "icon": "reco-gitlab"
           }
         ]
