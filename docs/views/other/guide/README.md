@@ -68,8 +68,6 @@ yarn dev
 yarn build
 ```
 
-! [image] (.\asset\image05.png)
-
 <img src="asset\image05.png" alt="image05" style="zoom:80%;" />
 
 编译生成的静态网页将位于“public”文件夹中。在生成的模板上，随即更新 `package.json` 中的依赖，使用最新的版本
