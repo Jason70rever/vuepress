@@ -91,7 +91,7 @@ categories:
 
 ​	SW1：
 
-````shell
+````
 <H3C>sys
 System View: return to User View with Ctrl+Z.
 [H3C]sysname hql_SW1
@@ -120,7 +120,7 @@ System View: return to User View with Ctrl+Z.
 
 ​	R1：
 
-````shell
+````
 <H3C>sys
 System View: return to User View with Ctrl+Z.
 [H3C]sysname hql_R1
@@ -141,7 +141,7 @@ System View: return to User View with Ctrl+Z.
 
 ​	R1：
 
-````shell
+````
 [hql_R1]int ser 1/0
 [hql_R1-Serial1/0]ip address 202.202.2.1 24
 [hql_R1-Serial1/0]link-protocol ppp                       //封装PPP
@@ -156,7 +156,7 @@ New local user added.
 
 ​	R2：
 
-````shell
+````
 <H3C>sys
 System View: return to User View with Ctrl+Z.
 [H3C]sysname hql_R2
@@ -178,7 +178,7 @@ System View: return to User View with Ctrl+Z.
 
 ​	R1：
 
-````shell
+````
 [hql_R1]int ser 1/0
 [hql_R1-Serial1/0]link-protocol fr         //封装帧中继协议
 [hql_R1-Serial1/0]fr interface-type dce   
@@ -193,7 +193,7 @@ System View: return to User View with Ctrl+Z.
 
 ​	R2：
 
-````shell
+````
 [hql_R2]int ser 1/0
 [hql_R2-Serial1/0]link-protocol fr
 [hql_R2-Serial1/0]fr interface-type dte
@@ -210,7 +210,7 @@ System View: return to User View with Ctrl+Z.
 
 ​	R1：
 
-````shell
+````
 [hql_R1]int gi 0/1
 [hql_R1-GigabitEthernet0/1]ip address 202.202.1.1 24
 [hql_R1-GigabitEthernet0/1]quit
@@ -237,7 +237,7 @@ System View: return to User View with Ctrl+Z.
 
 ​	R2:
 
-```shell
+```
 [hql_R2-Serial1/0]ospf dr-priority 0
 [hql_R2-Serial1/0]ospf network-type nbma
 [hql_R2-Serial1/0]quit
