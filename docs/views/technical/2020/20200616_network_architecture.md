@@ -17,6 +17,8 @@ categories:
 
 1.拓扑为一个企业网但是被分隔在三个不同的地理位置，企业总部和各分支机构内部地址利用私有专用地址进行配置。
 
+
+
 ### 1.2 总部配置要求
 
 1.总部有两个VLAN要求在SW1交换机上正确的规划和实现，并在R1上对这两个VLAN进行单臂路由。
@@ -29,6 +31,8 @@ categories:
 
 5.总部MAIL服务器对各分支机构提供邮箱服务，将邮件服务器内网地址192.168.2.2在R1路由器端口GE_0/1上映射为外网地址202.202.2.100供分支1访问，请在路由器R1上做相应的NAT设置。
 
+
+
 ### 1.3 分支1配置要求
 
 1.要求整个企业网三层设备上（路由器、防火墙）启动OSPF动态路由协议，并作单区域配置。
@@ -36,6 +40,8 @@ categories:
 2.企业网分支1可以访问总部，但不能访问分支2。且所有由分支1流出的报文，在防火墙外端口（GE_0/0）上将源地址转换为202.202.1.2的外端口地址。
 
 3.防火墙上配置aspf策略，要求对http协议进行检测、对smtp协议进行检测、对ftp协议进行检测。
+
+
 
 ### 1.4 分支2配置要求
 
@@ -106,6 +112,8 @@ System View: return to User View with Ctrl+Z.
 [hql_SW1-GigabitEthernet1/0/2]quit
 ````
 
+
+
 ### 3.2 单臂路由配置
 
 在R1上GE_0/0口上做单臂路由子接口，对两个VLAN进行单臂路由，实现VLAN间的互通。
@@ -124,6 +132,8 @@ System View: return to User View with Ctrl+Z.
 [hql_R1-GigabitEthernet0/0.2]vlan-type dot1q vid 3
 [hql_R1-GigabitEthernet0/0.2]quit
 ````
+
+
 
 ### 3.3 配置PAP认证
 
@@ -160,6 +170,8 @@ System View: return to User View with Ctrl+Z.
 [hql_R2-Serial1/0]quit
 ````
 
+
+
 ### 3.4 配置帧中继FR
 
 配置R1与R2之间用帧中继FR协议， DLCI=102。
@@ -189,6 +201,8 @@ System View: return to User View with Ctrl+Z.
 [hql_R2-Serial1/0-fr-dlci-102]quit
 [hql_R2-Serial1/0]fr inarp ip 102
 ````
+
+
 
 ### 3.5 启动OSPF动态路由协议
 
@@ -274,6 +288,8 @@ System View: return to User View with Ctrl+Z.
 [hql_firewall-zone-pair-security-Trust-DMZ]quit
 ```
 
+
+
 ### 3.6 配置防火墙策略
 
 配置防火墙域间策略，拒绝发往分支2的报文，在防火墙外端口（GE_0/0）上做静态转换将源地址转换为202.202.1.2。
@@ -292,6 +308,8 @@ System View: return to User View with Ctrl+Z.
 [hql_firewall-GigabitEthernet1/0/0]nat static enable
 ```
 
+
+
 ### 3.7 配置分支2策略
 
 在R2路由器上作相应设置，使企业网分支2可以访问总部也可以访问分支1，但访问分支1的时间限制在工作日时间的9:00—17：00。
@@ -306,6 +324,8 @@ System View: return to User View with Ctrl+Z.
 [hql_R2-Serial1/0]nat outbound 3500
 [hql_R2-Serial1/0]quit
 ```
+
+
 
 ### 3.8 防火墙上配置aspf策略
 
@@ -323,6 +343,8 @@ System View: return to User View with Ctrl+Z.
 //对ftp进行检测
 [hql_firewall-aspf-policy-1]quit
 ```
+
+
 
 ### 3.9 配置总部静态映射
 
@@ -359,6 +381,8 @@ VLAN能有效分割局域网，实现各网络区域之间的访问控制。但�
 PC_1 ping通MAIL服务器：
 
 <img src="asset/image03.png" style="zoom: 50%;" />
+
+
 
 
 
@@ -415,6 +439,8 @@ PC_1 ping通MAIL服务器：
 在路由器R1上PING自已帧中继网络的IP 202.202.2.1不能PING通，PING对方IP能PING通。
 
 帧中继接口对接，查看IP状态摘要会看到状态是UP，而协议是DOWN，因为帧中继接口不能对接使用,在中间必须要加一个帧中继交换机。帧中继交换机配置完毕，在路由器R1与路由器R2上要配置封装以及IP地址，地址要在同一网段。这时再用命令查看会看到状态和协议都是UP。但是，PING对端是通的，PING自己端口还是不通的。我们必须要使用命令frame-relay map ip ，才能看到多了一条静态映射，这样能ping通了。
+
+
 
 ### 4.7分析：OSPF特别解决方案
 

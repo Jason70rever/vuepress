@@ -147,6 +147,8 @@ yarn dev
 
 本地开发满意后，在 GitHub （也可以是 GitLab等类似的版本控制托管服务）中建立一个代码库，将本地代码提交到代码库中。
 
+<img src="asset\image10.png" alt="image06" style="zoom: 50%;" />
+
 
 
 ## 3.发布到 Netlify
@@ -154,14 +156,27 @@ yarn dev
 发布到 [Netlify.com](https://www.netlify.com)，只需要简单几步：
 
 1. 注册 Netlify 的账号并登录，需要提供一个电子邮件。
+
+   <img src="asset\image09.png" alt="image06" style="zoom:80%;" />
+
+   
+
 2. 新建一个项目，在设置里面填入 GitHub 代码库的链接，填写构建的命令和输出文件夹。
    按“Deploy site”按钮，耐心等候5分钟左右时间，让构建流程正常结束。
+
+   <img src="asset\image08.png" alt="image06" style="zoom:80%;" />
+
+   
+
 3. 构建成功后，设置定制的域名。
-   例如这里，我设置了定制的域名“bobyuan”，于是可以这样访问此博客网站：
-   <https://bobyuan.netlify.com/>
+   例如这里，我设置了定制的域名“jason70rever”，于是可以这样访问此博客网站：
+   https://jason70rever.netlify.app/
+
+   
 
 4. 【可选】每次提交到 GitHub，Netlify 将自动构建并发布网站。为了了解构建状态，在首页（README.md）中添加一个“status badge”。
-   
+
+   <img src="asset\image07.png" alt="image06" style="zoom:80%;" />
 
 
 
