@@ -159,7 +159,22 @@ yarn build
 
 <img src="asset\image05.png" alt="image05" style="zoom:80%;" />
 
-编译生成的静态网页将位于“public”文件夹中。在生成的模板上，随即更新 `package.json` 中的依赖，可以使用最新的版本
+如果编译生成静态网页时，发生类似下面的错误：
+
+```text
+Module not found: Error: Can't resolve 'vue-class-component' in ...
+```
+
+这是因为某些依赖关系不满足所致，可参照错误提示，运行如下命令来添加相关依赖：
+
+```shell
+yarn add -D vue-class-component
+yarn add -D vue
+```
+
+再次尝试编译生成静态网页，或是打开本地服务。应该一切正常才可以进行下一步。
+
+编译生成的静态网页将位于“public”文件夹中。在生成的模板上，随即更新 `package.json` 中的依赖，可以选择使用最新的版本。
 
 ````shell
 "devDependencies": {
